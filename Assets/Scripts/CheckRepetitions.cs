@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class CheckRepetitions : MonoBehaviour
 {
-    List<GrabAndDrag> grabAndDrag;
     void Start()
     {
-        grabAndDrag = new List<GrabAndDrag>();
-        foreach (GrabAndDrag g in transform.GetComponentsInChildren<GrabAndDrag>())
-        {
-            grabAndDrag.Add(g);
-        }
+
     }
 
-    public void checkRepetitions(int id)
+    void Update()
     {
-        for (int i = 0; i < grabAndDrag.Count; i++)
+        foreach (GrabAndDrag g in transform.GetComponentsInChildren<GrabAndDrag>())
         {
-            if (grabAndDrag[i].selected && grabAndDrag[i].GetInstanceID() != id)
+            if(g.selected && !g.cloned)
             {
-                grabAndDrag[i].checkToReset(true);
+                GameObject clone = Instantiate(g.gameObject, g.transform);
+                clone.GetComponent<GrabAndDrag>().cloned = true;
+                g.checkToReset(true);
             }
         }
     }

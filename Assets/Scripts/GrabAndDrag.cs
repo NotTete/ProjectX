@@ -11,7 +11,9 @@ public class GrabAndDrag : MonoBehaviour
     [SerializeField] bool extra;
 
     public bool selected = false;
-    bool grabbed = false;
+    public bool grabbed = false;
+    public bool cloned = false;
+
     float grabbed_frames = 0f;
     Vector3 offset = Vector3.zero;
     Vector2 position_before_movement;
@@ -48,8 +50,6 @@ public class GrabAndDrag : MonoBehaviour
             else if (grabbed_frames <= 0.2f && (transform.position + offset - new Vector3(initial_position.x, initial_position.y, transform.position.z)).sqrMagnitude < 0.1f)
             {
                 transform.position = new Vector3(click_position.x, click_position.y, transform.position.z);
-                if (!extra) transform.parent.GetComponent<CheckRepetitions>().checkRepetitions(GetInstanceID());
-                else transform.parent.GetComponent<RepeatElements>().AddElement(gameObject);
 
                 grabbed_frames = 0;
                 grabbed = false;
@@ -74,10 +74,8 @@ public class GrabAndDrag : MonoBehaviour
     {
         if(!collider.IsTouching(table) || force) {
             transform.position = new Vector3(initial_position.x, initial_position.y, transform.position.z);
+            if(cloned) Destroy(gameObject);
             selected = false;
-        } else
-        {
-            if (!extra) transform.parent.GetComponent<CheckRepetitions>().checkRepetitions(GetInstanceID());
         }
     }
 
