@@ -10,7 +10,7 @@ public class RepeatElements : MonoBehaviour
             {
                 GameObject clone = Instantiate(g.gameObject, transform);
                 clone.GetComponent<GrabAndDrag>().cloned = true;
-                clone.GetComponent<GrabAndDrag>().selected = false;
+                clone.GetComponent<GrabAndDrag>().selected = true;
                 clone.GetComponent<GrabAndDrag>().grabbed = false;
 
                 g.checkToReset(true);

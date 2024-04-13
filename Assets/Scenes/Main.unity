@@ -237,6 +237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 242871376}
   - component: {fileID: 242871377}
+  - component: {fileID: 242871378}
   m_Layer: 0
   m_Name: GrupoExtras
   m_TagString: Untagged
@@ -274,6 +275,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85fda47a532a0e0458bf72f3a780f20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &242871378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242871375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c54180af8e791f4c90f2d9e6aab37e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &244489521
@@ -2231,6 +2244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1422271494}
   - component: {fileID: 1422271493}
+  - component: {fileID: 1422271495}
   m_Layer: 0
   m_Name: GrupoCapullos
   m_TagString: Untagged
@@ -2270,6 +2284,18 @@ Transform:
   - {fileID: 1776227640}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1422271495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422271492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c54180af8e791f4c90f2d9e6aab37e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1540853074
 GameObject:
   m_ObjectHideFlags: 0
@@ -2787,6 +2813,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1783419306}
   - component: {fileID: 1783419307}
+  - component: {fileID: 1783419308}
   m_Layer: 0
   m_Name: GrupoTallos
   m_TagString: Untagged
@@ -2824,6 +2851,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1959a7b03520e034792ff7628c59aa1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1783419308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783419305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c54180af8e791f4c90f2d9e6aab37e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1784262869
