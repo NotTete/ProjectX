@@ -8,8 +8,6 @@ public class flowerCreator : MonoBehaviour
     string tallos = null;
     List<string> complementos;
 
-    Emotions stats = new Emotions();
-
     void Start()
     {
         List<string> list = new List<string>();
@@ -30,8 +28,6 @@ public class flowerCreator : MonoBehaviour
         hijo.AddComponent<Capullo>();
         Capullo capullo = hijo.GetComponent<Capullo>();
         capullo.Initialize(nombre);
-        stats.Add(capullo.emotions);
-
         hijo.transform.SetParent(transform);
     }
 
@@ -40,8 +36,6 @@ public class flowerCreator : MonoBehaviour
         Transform antiguoHijo = transform.Find("Capullo");
         if(antiguoHijo != null )
         {
-            Capullo antiguoCapullo = antiguoHijo.gameObject.GetComponent<Capullo>();
-            stats.Substract(antiguoCapullo.emotions);
             Destroy(antiguoHijo.gameObject);
         }
 

@@ -4,23 +4,17 @@
             "name": "John",
             "options": [
                 {
+                    "preview": "foo",
                     "dialogue": "foo",
                     "next": [
-                        -1,
-                        1,
-                        -1,
-                        1,
-                        -1
+                        1
                     ]
                 },
                 {
+                    "preview": "foo",
                     "dialogue": "foo",
                     "next": [
-                        -1,
-                        -1,
-                        -1,
-                        -1,
-                        -1
+                        1
                     ]
                 }
             ]
@@ -29,18 +23,15 @@
 
     "flowers": {
         "capullos": [
-            {"name": "espinas-ej", "value": [0, 0, 1, 1, 0]},
-            {"name": "hojas", "value": [0, 0, 1, 1, 0]}
+            "a"
         ],
 
         "tallos": [
-            {"name": "esinas-ej", "value": [0, 0, 1, 1, 0]},
-            {"name": "hojas", "value": [0, 0, 1, 1, 0]}
+            "b"
         ],
 
         "complementos": [
-            {"name": "espinas-ej", "value": [0, 0, 1, 1, 0]},
-            {"name": "hojas", "value": [0, 0, 1, 1, 0]}
+            "c"
         ]
     }
 }
