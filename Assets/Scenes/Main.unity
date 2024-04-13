@@ -3466,6 +3466,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 995603021}
     - target: {fileID: 4007872740382717625, guid: 513d8c0dbe042a04c8c45f101d68ae94, type: 3}
+      propertyPath: UIParent
+      value: 
+      objectReference: {fileID: 592468146}
+    - target: {fileID: 4007872740382717625, guid: 513d8c0dbe042a04c8c45f101d68ae94, type: 3}
       propertyPath: dialogs.Array.size
       value: 2
       objectReference: {fileID: 0}

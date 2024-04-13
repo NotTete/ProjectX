@@ -9,12 +9,15 @@ using System.Collections.Generic;
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class Dialog : MonoBehaviour
 {
+    // TETE TE ODIO POR LA UI ENTERA ANIMADA
+    public GameObject UIParent;
     public RectTransform parent;
     public GameObject optionButton;
     public TextMeshProUGUI textComponent;
     public DialogueComponent[] dialogs;
     public float textSpeed;
 
+    private Animator animator;
     private bool hasOptions = false;
     private List<GameObject> displayedButtons = new();
     private string msgBuffer;
@@ -23,6 +26,7 @@ public class Dialog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = UIParent.GetComponent<Animator>();
         msgBuffer = dialogs[dialogIdx].text;
 
         textComponent.text = string.Empty;
@@ -93,6 +97,7 @@ public class Dialog : MonoBehaviour
         }
         else
         {
+            animator.SetBool("isCreatingFlower", true);
             gameObject.SetActive(false);
         }
     }
