@@ -24,7 +24,6 @@ public class GrabAndDrag : MonoBehaviour
     void Start()
     {
         collider = GetComponent<Collider2D>();
-        transform.position = new Vector3(initial_position.x, initial_position.y, transform.position.z);
     }
 
     void Update()
@@ -77,13 +76,6 @@ public class GrabAndDrag : MonoBehaviour
             if(cloned) Destroy(gameObject);
             selected = false;
         }
-    }
 
-    public void moveToClick()
-    {
-        transform.position = new Vector3(click_position.x, click_position.y, transform.position.z);
-        grabbed_frames = 0;
-        grabbed = false;
-        selected = true;
     }
 }
