@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2234627622993054292}
   - component: {fileID: -1080356447096739766}
   - component: {fileID: -6152371991368302332}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capullos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
