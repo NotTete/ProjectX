@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UF
 {
@@ -38,7 +39,16 @@ public class UF
 
 public class JoinChecker : MonoBehaviour
 {
+    public GameObject endGameButtonObj;
+    private Button endGameButton;
+
     GameObject[] parents;
+
+    private void Awake()
+    {
+        endGameButton = endGameButtonObj.GetComponent<Button>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,9 +97,13 @@ public class JoinChecker : MonoBehaviour
         }
         if(valido)
         {
-            Debug.Log("Valido");
+            endGameButton.enabled = true;
+            // DEBUG
+            // Debug.Log("Valido");
+        } else
+        {
+            endGameButton.enabled = false;
         }
-
     }
 
     List<GrabAndDrag> getSelectedElements(out bool tallo, out bool capullo)
