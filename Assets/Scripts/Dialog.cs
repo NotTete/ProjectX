@@ -39,7 +39,7 @@ public class Dialog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Input.GetKeyDown(KeyCode.Space)) return;
+        if (!Input.GetKeyDown(KeyCode.Space) && !Input.GetMouseButtonDown(0)) return;
 
         else if (!hasOptions && textComponent.text == msgBuffer)
         {
