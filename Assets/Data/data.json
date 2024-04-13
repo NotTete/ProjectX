@@ -1,0 +1,46 @@
+{
+    "dialogues": [
+        {
+            "name": "John",
+            "options": [
+                {
+                    "dialogue": "foo",
+                    "next": [
+                        -1,
+                        1,
+                        -1,
+                        1,
+                        -1
+                    ]
+                },
+                {
+                    "dialogue": "foo",
+                    "next": [
+                        -1,
+                        -1,
+                        -1,
+                        -1,
+                        -1
+                    ]
+                }
+            ]
+        }
+    ],
+
+    "flowers": {
+        "capullos": [
+            {"name": "espinas-ej", "value": [0, 0, 1, 1, 0]},
+            {"name": "hojas", "value": [0, 0, 1, 1, 0]}
+        ],
+
+        "tallos": [
+            {"name": "esinas-ej", "value": [0, 0, 1, 1, 0]},
+            {"name": "hojas", "value": [0, 0, 1, 1, 0]}
+        ],
+
+        "complementos": [
+            {"name": "espinas-ej", "value": [0, 0, 1, 1, 0]},
+            {"name": "hojas", "value": [0, 0, 1, 1, 0]}
+        ]
+    }
+}
