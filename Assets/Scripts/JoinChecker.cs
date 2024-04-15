@@ -41,23 +41,22 @@ public class JoinChecker : MonoBehaviour
 {
     public GameObject endGameButtonObj;
     private Button endGameButton;
+    private Animator endGameButtonAnimator;
 
     GameObject[] parents;
 
     private void Awake()
     {
         endGameButton = endGameButtonObj.GetComponent<Button>();
+        endGameButtonAnimator = endGameButtonObj.GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        var par = FindObjectsOfType<ElementosTablero>();
-        parents = new GameObject[par.Length];
-        for(int i = 0; i < par.Length; i++)
-        {
-            parents[i] = par[i].gameObject;
-        }
+
+        parents = GameObject.FindGameObjectsWithTag("Flores");
+        Debug.Log(parents.Length);
     }
 
     // Update is called once per frame
@@ -78,9 +77,7 @@ public class JoinChecker : MonoBehaviour
 
             for (int j = i + 1; j < lista.Count; j++)
             {
-
                 Collider2D collider2 = lista[j].gameObject.GetComponent<Collider2D>();
-
                 if (collider1.IsTouching(collider2))
                 {
                     unionFind.join(j, i);
@@ -88,18 +85,19 @@ public class JoinChecker : MonoBehaviour
             }
         }
 
-        bool valido = lista.Count > 0 && tallo && capullo;
+        bool esValido = lista.Count > 0 && tallo && capullo;
         int k = 1;
-        while (valido && k < lista.Count)
+        while (esValido && k < lista.Count)
         {
-            valido = unionFind.sameSet(k, 0);
+            esValido = unionFind.sameSet(k, 0);
             k++;
         }
-        if(valido)
+
+        endGameButtonAnimator.SetBool("isValid", esValido);
+        if (esValido)
         {
             endGameButton.enabled = true;
             // DEBUG
-            // Debug.Log("Valido");
         } else
         {
             endGameButton.enabled = false;

@@ -1,11 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using System;
+using System.IO;
+using System.Collections;
 
 public class TakeFotograph : MonoBehaviour
 {
+    AudioManager audioManager;
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GameObject.FindGameObjectWithTag("ScreenshotNotice").GetComponent<Animator>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     [SerializeField] Camera camera;
     public void SaveCameraView()
     {
@@ -47,15 +55,32 @@ public class TakeFotograph : MonoBehaviour
             }
         }
 
-        Color[] col = screenshot.GetPixels(minWidth, minHeight, maxWidth - minWidth, maxHeight - minHeight);
-        Texture2D crop = new Texture2D(maxWidth - minWidth, maxHeight - minHeight, TextureFormat.RGBA32, false);
+        Color[] col;
+        try
+        {
+            col = screenshot.GetPixels(minWidth, minHeight, maxWidth - minWidth, maxHeight - minHeight);
 
-        crop.SetPixels(0, 0, maxWidth - minWidth, maxHeight - minHeight, col);
-        byte[] byteArray = crop.EncodeToPNG();
-        System.IO.File.WriteAllBytes(Application.dataPath + $"\\{DateTimeOffset.UtcNow.ToUnixTimeSeconds()}.png", byteArray);
-        Debug.Log("Saved");
+            Texture2D crop = new Texture2D(maxWidth - minWidth, maxHeight - minHeight, TextureFormat.RGBA32, false);
+
+            crop.SetPixels(0, 0, maxWidth - minWidth, maxHeight - minHeight, col);
+            byte[] byteArray = crop.EncodeToPNG();
+
+            string filepath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + " \\" + "TakeAPlant";
+            Directory.CreateDirectory(filepath);
+            System.IO.File.WriteAllBytes(filepath + $"\\{DateTimeOffset.UtcNow.ToUnixTimeSeconds()}.png", byteArray);
+
+            audioManager.PlaySFX(audioManager.cameraSnap);
+
+            Debug.Log("Saved");
+        }
+        catch (Exception)
+        {
+            camera.enabled = false;
+            return;
+        }
 
         camera.enabled = false;
-
     }
+
+
 }
